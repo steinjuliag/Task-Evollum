@@ -1,11 +1,11 @@
-task
+
 Aplicação:
 Java 8, Spring boot e maven
 
 Faça o clone do projeto.
 
 No diretório onde foi feito o clone.
-#Rodar aplicação:
+#Levantar a aplicação:
 mvn spring-boot:run
 
 EndPoints
