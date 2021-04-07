@@ -49,6 +49,7 @@ public class CidadeService {
 		try {
 			LOG.info("Buscar id da cidade...");
 			cidadeResponse = serviceFeign.getIdCidade(nomeCidade);
+			LOG.info("Id "+nomeCidade+ " " + cidadeResponse.getId());
 			return cidadeResponse.getId();
 		} catch (Exception e) {
 			System.err.println(e);

@@ -15,14 +15,13 @@ import com.julia.evoluum.service.CidadeService;
 import com.julia.evoluum.service.EstadoService;
 
 @RestController
-@RequestMapping("/estado")
 public class EstadoController {
 
 	@Autowired
 	private EstadoService estadoService;
 
-	@GetMapping()
-	public List<EstadoResponse> todosOsEstados() {
+	@GetMapping("/buscarEstados")
+	public List<EstadoResponse> getEstados() {
 		return estadoService.getListEstado();
 	}
 

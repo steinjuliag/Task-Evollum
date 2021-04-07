@@ -29,6 +29,7 @@ public class FileController {
 		InputStreamResource csv = fileCsv.criarCsv();
 		HttpHeaders headers = fileCsv.criarHeaders();
 		ResponseEntity<?> responseEntity = new ResponseEntity<>(csv, headers, HttpStatus.OK);
+		LOG.info("Concluído download csv...");
 		return (ResponseEntity<OutputStream>) responseEntity;
 
 	}

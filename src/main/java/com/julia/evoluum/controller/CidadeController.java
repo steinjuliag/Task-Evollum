@@ -22,12 +22,12 @@ public class CidadeController {
 		return cidadeService.getListCidade();
 	}
 
-	@RequestMapping(value = "/cidade/{nomeCidade}", method = RequestMethod.GET)
+	@GetMapping(value = "/buscarIdcidade/{nomeCidade}")
 	public Long getIdCidade(@PathVariable String nomeCidade) {
 		return cidadeService.getIdCidade(nomeCidade);
 	}
 	
-	@GetMapping(value = "/{estado}")
+	@GetMapping(value = "/buscarCidadesInEstado/{estado}")
 	public List<CidadeResponse> getListCidadesByEstado(@PathVariable String estado) {
 		return cidadeService.getListCidadeByEstado(estado);
 	}
