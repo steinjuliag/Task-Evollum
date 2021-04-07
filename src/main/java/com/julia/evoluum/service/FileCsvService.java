@@ -4,10 +4,7 @@ import java.io.ByteArrayInputStream;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -51,19 +48,19 @@ public class FileCsvService {
 		}
 
 		try (ByteArrayOutputStream out = new ByteArrayOutputStream();
-				CSVPrinter csvPrinter = new CSVPrinter(new PrintWriter(out, true),
-						CSVFormat.TDF.withHeader(getHeader()));) {
-			
+				CSVPrinter csvPrinter = new CSVPrinter(new PrintWriter(out),
+						CSVFormat.DEFAULT.withHeader(getHeader()));) {
+
 			for (List<String> record : csvBody)
 				csvPrinter.printRecord(record);
-          
+
 			csvPrinter.flush();
 
 			byteArrayOutputStream = new ByteArrayInputStream(out.toByteArray());
 		} catch (IOException e) {
 			throw new RuntimeException(e.getMessage());
 		}
-		InputStreamReader contentReader = new InputStreamReader(byteArrayOutputStream, encoding);
+
 		InputStreamResource fileInputStream = new InputStreamResource(byteArrayOutputStream);
 		return fileInputStream;
 	}
@@ -76,8 +73,9 @@ public class FileCsvService {
 	}
 
 	public String formatar(String nomeCidade, String siglaEstado) {
-		final String atributo = nomeCidade.concat(CONCAT_CHAR);
-		final String nomeFormatado = atributo.concat(siglaEstado);
+		String atributo = nomeCidade.concat(CONCAT_CHAR);
+		String nomeFormatado = atributo.concat(siglaEstado);
+
 		return nomeFormatado;
 	}
 

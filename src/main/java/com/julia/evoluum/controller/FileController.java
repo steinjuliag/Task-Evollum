@@ -1,5 +1,7 @@
 package com.julia.evoluum.controller;
 
+import java.io.OutputStream;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +24,12 @@ public class FileController {
 	private static final Logger LOG = LoggerFactory.getLogger(FileController.class);
 
 	@GetMapping(value = "/csv", produces = "text/csv")
-	public ResponseEntity<?> dowloadCsv() {
+	public ResponseEntity<OutputStream> dowloadCsv() {
 		LOG.info("Inicio do download arquivo csv...");
 		InputStreamResource csv = fileCsv.criarCsv();
 		HttpHeaders headers = fileCsv.criarHeaders();
 		ResponseEntity<?> responseEntity = new ResponseEntity<>(csv, headers, HttpStatus.OK);
-		return (ResponseEntity<?>) responseEntity;
+		return (ResponseEntity<OutputStream>) responseEntity;
 
 	}
 
