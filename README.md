@@ -1,6 +1,6 @@
 task
 Aplicação:
-Java 8, Spring boot e mavem
+Java 8, Spring boot e maven
 
 Faça o clone do projeto.
 
