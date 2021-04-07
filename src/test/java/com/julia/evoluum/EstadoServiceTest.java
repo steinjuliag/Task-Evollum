@@ -34,7 +34,6 @@ public class EstadoServiceTest {
 		estadoResponsesEsperado.add(estadoResponse);
 		Mockito.when(estadoServiceFeign.getListEstado()).thenReturn(estadoResponsesEsperado);
 
-		// chamda
 		List<EstadoResponse> estadoResponses = estadoService.getListEstado();
 		assertEquals(estadoResponsesEsperado, estadoResponses);
 	}
@@ -44,7 +43,6 @@ public class EstadoServiceTest {
 
 		Mockito.when(estadoServiceFeign.getListEstado()).thenThrow(new RuntimeException());
 
-		// chamda
 		List<EstadoResponse> estadoResponses = estadoService.getListEstado();
 		assertTrue(estadoResponses.isEmpty());
 

@@ -1,22 +1,10 @@
 HELP.md
-target/
+
+/target/
+*/target/**
+**/META-INF/
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
 
-
-# maven project related ignore files and directories  
-.mvn/  
-target/ 
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
 
 ### IntelliJ IDEA ###
 .idea
